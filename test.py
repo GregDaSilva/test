@@ -396,9 +396,9 @@ if __name__ == '__main__':
     yaw   = math.atan2(-2 * q1 * q2 - 2 * q0 * q3, 2 * q2 * q2 + 2 * q3 * q3 - 1) * 57.3
     #print("\r\n /-------------------------------------------------------------/ \r\n")
     
-    print(str(datetime.now()) + " " + str(form.format(roll)) + " " + str(form.format(pitch)) + " " + str(form.format(yaw)) + " " + str(form.format((Accel[0]/16384))) + " " + str(form.format(Accel[1]/16384)) + 
-" " + str(form.format(Accel[2]/16384)) + " " + str(form.format(Gyro[0]/32.8)) + " " + str(form.format(Gyro[1]/32.8)) + " " + str(form.format(Gyro[2]/32.8)) + " " + str(form.format(Mag[0])) + 
-" " + str(form.format(Mag[1])) + " " + str(form.format(Mag[2])) )
+    print(str(datetime.now()) + " , " + str(form.format(roll)) + ", " + str(form.format(pitch)) + ", " + str(form.format(yaw)) + ", " + str(form.format((Accel[0]/16384))) + ", " + str(form.format(Accel[1]/16384)) + 
+", " + str(form.format(Accel[2]/16384)) + ", " + str(form.format(Gyro[0]/32.8)) + ", " + str(form.format(Gyro[1]/32.8)) + ", " + str(form.format(Gyro[2]/32.8)) + ", " + str(form.format(Mag[0])) + 
+", " + str(form.format(Mag[1])) + ", " + str(form.format(Mag[2])) )
 
 
     #print('\r\n Roll = %.2f , Pitch = %.2f , Yaw = %.2f\r\n'%(roll,pitch,yaw))
