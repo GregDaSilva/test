@@ -381,6 +381,7 @@ if __name__ == '__main__':
   MotionVal=[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0]
   icm20948=ICM20948()
   print("Raspberry UTC Start" + str(datetime.now()))
+  #print("UTC Current Time, AccX, AccY, AccZ, GyroX, GyroY, GyroZ")
   print("UTC Current Time, roll, Pitch, Yaw, AccX, AccY, AccZ, GyroX, GyroY, GyroZ, MagX, MagY, MagZ")
   form = "{0:.7f}"
   while True:
@@ -396,6 +397,10 @@ if __name__ == '__main__':
     yaw   = math.atan2(-2 * q1 * q2 - 2 * q0 * q3, 2 * q2 * q2 + 2 * q3 * q3 - 1) * 57.3
     #print("\r\n /-------------------------------------------------------------/ \r\n")
     
+
+    #print(str(datetime.now()) + " , " + str(form.format((Accel[0]/16384))) + ", " + str(form.format(Accel[1]/16384)) + ", " + str(form.format(Accel[2]/16384)) + ", " + str(form.format(Gyro[0]/32.8)) + ", " + str(form.format(Gyro[1]/32.8)) + ", " + str(form.format(Gyro[2]/32.8)) )
+
+
     print(str(datetime.now()) + " , " + str(form.format(roll)) + ", " + str(form.format(pitch)) + ", " + str(form.format(yaw)) + ", " + str(form.format((Accel[0]/16384))) + ", " + str(form.format(Accel[1]/16384)) + 
 ", " + str(form.format(Accel[2]/16384)) + ", " + str(form.format(Gyro[0]/32.8)) + ", " + str(form.format(Gyro[1]/32.8)) + ", " + str(form.format(Gyro[2]/32.8)) + ", " + str(form.format(Mag[0])) + 
 ", " + str(form.format(Mag[1])) + ", " + str(form.format(Mag[2])) )

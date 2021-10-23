@@ -1,0 +1,45 @@
+import os
+
+f = raw_input("\n Hello, user. "
+    "\n \n Please type in the path to your file and press 'Enter' for compression: ")
+file = open(f, 'r')
+
+
+os.system("mv " + f + " rawData.csv")
+os.system("tar czf rawData.csv.tar.gz rawData.csv")
+
+os.system("ls -l rawData.csv > originalsize.txt")
+
+
+os.system("ls -l rawData.csv.tar.gz > compressedsize.txt")
+
+
+
+with open('originalsize.txt') as a:
+    line = a.readline()  # read up to 8 chars from first line
+print("Size of original file is " + line[19:-25] + " Bytes")
+
+with open('compressedsize.txt') as a:
+    compressedline = a.readline()  # read up to 8 chars from first line
+print("Size of compressed file is " + compressedline[19:-32] + " Bytes")
+
+originalsize = float(line[19:-25])
+compressedsize = float(compressedline[19:-32])
+
+reduction = ((originalsize-compressedsize)/originalsize)*100
+
+print("Compression ratio : " + str(reduction) + "%")
+
+
+os.system("mv rawData.csv " + f)
+os.system("mv rawData.csv.tar.gz " + f + ".tar.gz")
+os.system("rm originalsize.txt compressedsize.txt")
+
+os.system("cp " + f + " original")
+os.system("tar xzf " + f + ".tar.gz")
+os.system("mv rawData.csv decompressed")
+s = os.system("cmp original decompressed")
+
+if s == 0 :
+	print("No difference between files")
+
